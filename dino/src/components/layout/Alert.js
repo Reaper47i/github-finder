@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from "react";
+import AlertContext from "../../context/Alert/alertContext";
 
-const Alert = ({ alert }) => {
-    return (
-        alert !== null &&(
-            <div className={`alert alert-${alert.type}`}>
-                <i className="fa fa-info-circle"></i>
-                {alert.msg}
+const Alert = () => {
+  const alertContext = useContext(AlertContext);
 
-            </div>
-        )
+  const { alert } = alertContext;
+
+  return (
+    alert !== null && (
+      <div className={`alert alert-${alert.type}`}>
+        <i className="fa fa-info-circle"></i>
+        {alert.msg}
+      </div>
     )
-}
+  );
+};
 
-export default Alert
+export default Alert;
